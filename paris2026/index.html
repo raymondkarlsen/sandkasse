@@ -8,8 +8,8 @@
   :root {
     --black: #111111;
     --dark: #1E2B3C;
-    --mid: #555555;
-    --light: #999999;
+    --mid: #333333;
+    --light: #5f5f5f;
     --rule: #DDDDDD;
     --bg: #FFFFFF;
     --bg-off: #F5F5F5;
@@ -26,13 +26,18 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+  }
+
   body {
     background: var(--bg);
     color: var(--black);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -53,7 +58,7 @@
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--light);
+    color: #b8b8b8;
     margin-bottom: 0.9rem;
   }
 
@@ -70,7 +75,7 @@
     font-weight: 400;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--light);
+    color: #bdbdbd;
     margin-top: 0.7em;
   }
 
@@ -84,8 +89,8 @@
   }
 
   .fact {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.85rem;
+    color: #b0b0b0;
     line-height: 1.4;
   }
 
@@ -96,6 +101,73 @@
     font-size: 0.88rem;
   }
 
+  /* TABLE OF CONTENTS */
+  .toc {
+    background: var(--bg-off);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .toc-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.6rem 1.5rem;
+  }
+
+  .toc-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: block;
+  }
+
+  .toc-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .toc-list li:last-child a { border-bottom: 1px solid transparent; }
+
+  .toc-list a:hover,
+  .toc-list a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .toc-list a::after {
+    content: "\2193";
+    margin-left: auto;
+    color: var(--accent);
+    font-weight: 700;
+    transition: transform 0.15s;
+  }
+
+  .toc-list a:hover::after,
+  .toc-list a:focus-visible::after {
+    transform: translateY(2px);
+  }
+
+  .toc-num {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    min-width: 1.6em;
+  }
+
   /* PAGE */
   .page {
     max-width: 680px;
@@ -104,7 +176,7 @@
   }
 
   /* SECTION */
-  section { padding-top: 3rem; }
+  section { padding-top: 4.5rem; scroll-margin-top: 1.5rem; }
 
   .section-label {
     font-size: 0.68rem;
@@ -139,8 +211,8 @@
 
   .nbh-card-inner { padding: 1.2rem 1.2rem; }
 
-  .nbh-card.primary-card { background: var(--blue-pale); }
-  .nbh-card.secondary-card { background: var(--amber-pale); }
+  .nbh-card.primary-card { background: var(--slate-pale); }
+  .nbh-card.secondary-card { background: var(--slate-pale); }
   .nbh-card.tertiary-card { background: var(--slate-pale); }
 
   .nbh-card-header {
@@ -222,6 +294,8 @@
 
   .note strong { color: var(--blue); font-weight: 600; }
 
+  .note a { color: var(--accent); font-weight: 600; text-decoration: underline; }
+
   /* DAY CARDS */
   .day-card {
     border: 1px solid var(--rule);
@@ -255,8 +329,8 @@
   }
 
   .day-subtitle {
-    font-size: 0.68rem;
-    color: #888;
+    font-size: 0.7rem;
+    color: #aab4c2;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-top: 0.25rem;
@@ -267,27 +341,20 @@
   .timeline { display: flex; flex-direction: column; }
 
   .t-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 0.75rem;
     padding: 0.85rem 0;
     border-bottom: 1px solid var(--rule);
   }
 
   .t-item:last-child { border-bottom: none; }
 
-  @media (max-width: 420px) {
-    .t-item { grid-template-columns: 1fr; gap: 0.2rem; }
-    .t-time { margin-bottom: 0.15rem; }
-  }
-
   .t-time {
-    font-size: 0.68rem;
+    display: block;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--light);
-    padding-top: 0.15rem;
+    margin-bottom: 0.35rem;
   }
 
   .t-title {
@@ -298,38 +365,6 @@
   }
 
   .t-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.55; }
-
-  /* DISNEY STRIP */
-  .disney-strip {
-    background: var(--blue);
-    color: #fff;
-    padding: 1rem 1.1rem;
-    margin-bottom: 0.75rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .disney-strip-title {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  .disney-strip-sub { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.2rem; }
-
-  .disney-strip-badge {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: #fff;
-    padding: 0.35rem 0.8rem;
-    white-space: nowrap;
-  }
 
   /* ALT GRID */
   .alt-grid {
@@ -494,18 +529,30 @@
     <p class="eyebrow">Familiereise · Reiseguide</p>
     <h1>Paris<span>Høstferie · Uke 40 · 4 dager / 3 netter</span></h1>
     <div class="header-facts">
-      <div class="fact"><strong>Reisende</strong>2 voksne + barn 11 og 9 år</div>
-      <div class="fact"><strong>Høydepunkt</strong>Disney Halloween Festival</div>
-      <div class="fact"><strong>Vær</strong>ca. 9–16°C, noe regn</div>
-      <div class="fact"><strong>Valuta</strong>Euro (€)</div>
+      <div class="fact"><strong>Reisende</strong>2 voksne og 2 barn (9 og 12 år)</div>
+      <div class="fact"><strong>Høydepunkt</strong>Eiffeltårnet, Notre-Dame, Jardin des Tuileries og Disney Halloween Festival</div>
+      <div class="fact"><strong>Forventet vær</strong>ca. 9–16°C, noe regn</div>
     </div>
   </div>
 </header>
 
+<nav class="toc" aria-label="Innhold">
+  <div class="toc-inner">
+    <p class="toc-title">Innhold</p>
+    <ol class="toc-list">
+      <li><a href="#omrader"><span class="toc-num">01</span> Områder å bo i</a></li>
+      <li><a href="#program"><span class="toc-num">02</span> Dag-for-dag-program</a></li>
+      <li><a href="#alternativer"><span class="toc-num">03</span> Alternative aktiviteter</a></li>
+      <li><a href="#bestill"><span class="toc-num">04</span> Bestill på forhånd</a></li>
+      <li><a href="#transport"><span class="toc-num">05</span> Transport</a></li>
+    </ol>
+  </div>
+</nav>
+
 <div class="page">
 
   <!-- 01 HVOR BOR DERE -->
-  <section>
+  <section id="omrader">
     <p class="section-label">01</p>
     <h2 class="section-title">Områder å bo i</h2>
 
@@ -596,9 +643,9 @@
   </section>
 
   <!-- 02 DAG-FOR-DAG -->
-  <section>
+  <section id="program">
     <p class="section-label">02</p>
-    <h2 class="section-title">Dag-for-dag-program</h2>
+    <h2 class="section-title">Forslag til program</h2>
 
     <!-- DAG 1 -->
     <div class="day-card">
@@ -647,13 +694,7 @@
         </div>
       </div>
       <div class="day-body">
-        <div class="disney-strip">
-          <div>
-            <div class="disney-strip-title">Halloween Festival 26. sep – 1. nov 2026</div>
-            <div class="disney-strip-sub">Uke 40 har generelt kortere køer og lavere priser enn de franske skoleferieukene</div>
-          </div>
-          <div class="disney-strip-badge">Book nå</div>
-        </div>
+        <div class="note" style="margin-top:0;margin-bottom:1rem;"><strong>Tips — Halloween Festival 26. sep – 1. nov 2026.</strong> Uke 40 har generelt kortere køer og lavere priser enn de franske skoleferieukene. <a href="https://www.disneylandparis.com/" target="_blank" rel="noopener">Book billetter hos Disneyland Paris</a>.</div>
         <div class="timeline">
           <div class="t-item">
             <div class="t-time">07:30</div>
@@ -784,7 +825,7 @@
   </section>
 
   <!-- 03 ALTERNATIVE AKTIVITETER -->
-  <section>
+  <section id="alternativer">
     <p class="section-label">03</p>
     <h2 class="section-title">Alternative aktiviteter</h2>
     <p style="font-size:0.82rem; color:var(--mid); margin-bottom:1.2rem;">Aktuelle alternativer ved ekstra tid, endret plan eller dårlig vær:</p>
@@ -824,9 +865,9 @@
   </section>
 
   <!-- 04 BESTILL PÅ FORHÅND -->
-  <section>
+  <section id="bestill">
     <p class="section-label">04</p>
-    <h2 class="section-title">Bestill på forhånd</h2>
+    <h2 class="section-title">Forhåndsbestilling</h2>
 
     <div class="book-list">
       <div class="book-item">
@@ -872,7 +913,7 @@
   </section>
 
   <!-- 06 TRANSPORT -->
-  <section>
+  <section id="transport">
     <p class="section-label">05</p>
     <h2 class="section-title">Transport</h2>
 
@@ -895,7 +936,7 @@
 </div>
 
 <footer>
-  Paris · Høstferie 2026 · <strong>To voksne og to barn</strong>
+  Paris · Høstferie 2026
 </footer>
 
 </body>
