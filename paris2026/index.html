@@ -124,13 +124,7 @@
 
   .toc-list {
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.4rem 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    .toc-list { grid-template-columns: 1fr; }
+    display: block;
   }
 
   .toc-list a {
@@ -141,15 +135,30 @@
     color: var(--blue);
     font-weight: 600;
     font-size: 1.05rem;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid transparent;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
     transition: color 0.15s, border-color 0.15s;
   }
+
+  .toc-list li:last-child a { border-bottom: 1px solid transparent; }
 
   .toc-list a:hover,
   .toc-list a:focus-visible {
     color: var(--accent);
     border-bottom-color: var(--accent);
+  }
+
+  .toc-list a::after {
+    content: "\2193";
+    margin-left: auto;
+    color: var(--accent);
+    font-weight: 700;
+    transition: transform 0.15s;
+  }
+
+  .toc-list a:hover::after,
+  .toc-list a:focus-visible::after {
+    transform: translateY(2px);
   }
 
   .toc-num {
