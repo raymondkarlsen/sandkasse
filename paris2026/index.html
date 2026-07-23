@@ -8,8 +8,8 @@
   :root {
     --black: #111111;
     --dark: #1E2B3C;
-    --mid: #555555;
-    --light: #999999;
+    --mid: #333333;
+    --light: #5f5f5f;
     --rule: #DDDDDD;
     --bg: #FFFFFF;
     --bg-off: #F5F5F5;
@@ -26,13 +26,18 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+  }
+
   body {
     background: var(--bg);
     color: var(--black);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -53,7 +58,7 @@
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--light);
+    color: #b8b8b8;
     margin-bottom: 0.9rem;
   }
 
@@ -70,7 +75,7 @@
     font-weight: 400;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--light);
+    color: #bdbdbd;
     margin-top: 0.7em;
   }
 
@@ -84,8 +89,8 @@
   }
 
   .fact {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.85rem;
+    color: #b0b0b0;
     line-height: 1.4;
   }
 
@@ -96,6 +101,64 @@
     font-size: 0.88rem;
   }
 
+  /* TABLE OF CONTENTS */
+  .toc {
+    background: var(--bg-off);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .toc-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.6rem 1.5rem;
+  }
+
+  .toc-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .toc-list { grid-template-columns: 1fr; }
+  }
+
+  .toc-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .toc-list a:hover,
+  .toc-list a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .toc-num {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    min-width: 1.6em;
+  }
+
   /* PAGE */
   .page {
     max-width: 680px;
@@ -104,7 +167,7 @@
   }
 
   /* SECTION */
-  section { padding-top: 3rem; }
+  section { padding-top: 4.5rem; scroll-margin-top: 1.5rem; }
 
   .section-label {
     font-size: 0.68rem;
@@ -255,8 +318,8 @@
   }
 
   .day-subtitle {
-    font-size: 0.68rem;
-    color: #888;
+    font-size: 0.7rem;
+    color: #aab4c2;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-top: 0.25rem;
@@ -502,10 +565,23 @@
   </div>
 </header>
 
+<nav class="toc" aria-label="Innhold">
+  <div class="toc-inner">
+    <p class="toc-title">Innhold</p>
+    <ol class="toc-list">
+      <li><a href="#omrader"><span class="toc-num">01</span> Områder å bo i</a></li>
+      <li><a href="#program"><span class="toc-num">02</span> Dag-for-dag-program</a></li>
+      <li><a href="#alternativer"><span class="toc-num">03</span> Alternative aktiviteter</a></li>
+      <li><a href="#bestill"><span class="toc-num">04</span> Bestill på forhånd</a></li>
+      <li><a href="#transport"><span class="toc-num">05</span> Transport</a></li>
+    </ol>
+  </div>
+</nav>
+
 <div class="page">
 
   <!-- 01 HVOR BOR DERE -->
-  <section>
+  <section id="omrader">
     <p class="section-label">01</p>
     <h2 class="section-title">Områder å bo i</h2>
 
@@ -596,7 +672,7 @@
   </section>
 
   <!-- 02 DAG-FOR-DAG -->
-  <section>
+  <section id="program">
     <p class="section-label">02</p>
     <h2 class="section-title">Dag-for-dag-program</h2>
 
@@ -784,7 +860,7 @@
   </section>
 
   <!-- 03 ALTERNATIVE AKTIVITETER -->
-  <section>
+  <section id="alternativer">
     <p class="section-label">03</p>
     <h2 class="section-title">Alternative aktiviteter</h2>
     <p style="font-size:0.82rem; color:var(--mid); margin-bottom:1.2rem;">Aktuelle alternativer ved ekstra tid, endret plan eller dårlig vær:</p>
@@ -824,7 +900,7 @@
   </section>
 
   <!-- 04 BESTILL PÅ FORHÅND -->
-  <section>
+  <section id="bestill">
     <p class="section-label">04</p>
     <h2 class="section-title">Bestill på forhånd</h2>
 
@@ -872,7 +948,7 @@
   </section>
 
   <!-- 06 TRANSPORT -->
-  <section>
+  <section id="transport">
     <p class="section-label">05</p>
     <h2 class="section-title">Transport</h2>
 
