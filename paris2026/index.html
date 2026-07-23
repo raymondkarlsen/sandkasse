@@ -46,11 +46,43 @@
     background: var(--black);
     color: #fff;
     padding: 2.5rem 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Fransk trikolor-stripe langs toppen */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right,
+      #0055A4 0 33.33%,
+      #ffffff 33.33% 66.66%,
+      #EF4135 66.66% 100%);
+    z-index: 2;
+  }
+
+  /* Eiffeltårn-silhuett som diskret vannmerke */
+  .header-eiffel {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 320px;
+    width: auto;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .header-inner {
     max-width: 680px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .eyebrow {
@@ -525,6 +557,15 @@
 <body>
 
 <header>
+  <svg class="header-eiffel" viewBox="0 0 100 130" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="50" y1="2" x2="50" y2="10"/>
+    <path d="M50 10 C 49 22, 48 30, 46 42 C 44 60, 40 78, 34 98 C 30 110, 26 118, 22 126"/>
+    <path d="M50 10 C 51 22, 52 30, 54 42 C 56 60, 60 78, 66 98 C 70 110, 74 118, 78 126"/>
+    <line x1="46" y1="42" x2="54" y2="42"/>
+    <line x1="41" y1="66" x2="59" y2="66"/>
+    <path d="M34 98 Q 50 82 66 98"/>
+    <line x1="22" y1="126" x2="78" y2="126"/>
+  </svg>
   <div class="header-inner">
     <p class="eyebrow">Familiereise · Reiseguide</p>
     <h1>Paris<span>Høstferie · Uke 40 · 4 dager / 3 netter</span></h1>
@@ -776,7 +817,6 @@
             </div>
           </div>
         </div>
-        <div class="note" style="margin-top:1rem;"><strong>Middag:</strong> Pink Mamma (9. arr.) eller The Family (9. arr.) — begge barnevennlige. Book bord på forhånd.</div>
       </div>
     </div>
 
@@ -887,7 +927,7 @@
         <div class="book-when">2–3 uker før</div>
       </div>
       <div class="book-item">
-        <div class="book-item-name">Middag Pink Mamma eller annen populær restaurant</div>
+        <div class="book-item-name">Bord på en populær restaurant</div>
         <div class="book-when">1–2 uker før</div>
       </div>
     </div>
