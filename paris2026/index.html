@@ -57,7 +57,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 16px;
     background: linear-gradient(to right,
       #0055A4 0 33.33%,
       #ffffff 33.33% 66.66%,
@@ -95,7 +95,7 @@
   }
 
   header h1 {
-    font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(2rem, 6.5vw, 3.2rem);
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
@@ -227,6 +227,67 @@
     padding-bottom: 0.8rem;
     border-bottom: 2px solid var(--blue);
     margin-bottom: 1.5rem;
+  }
+
+  /* HOTEL LIST */
+  .hotel-map,
+  .doc-figure {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
+  }
+
+  .hotel-map-cap,
+  .doc-figure-cap {
+    font-size: 0.8rem;
+    color: var(--mid);
+    margin: 0.5rem 0 1.3rem;
+  }
+
+  .hotel-list { border: 1px solid var(--rule); }
+
+  .hotel-head,
+  .hotel-item {
+    display: grid;
+    grid-template-columns: 1fr 5.5rem 7rem;
+    gap: 1rem;
+    padding: 0.85rem 1.1rem;
+    align-items: baseline;
+  }
+
+  .hotel-head {
+    background: var(--bg-off);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hotel-item {
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.9rem;
+  }
+
+  .hotel-item:last-child { border-bottom: none; }
+
+  .hotel-name { color: var(--black); font-weight: 500; }
+  .hotel-score { color: var(--mid); white-space: nowrap; }
+
+  .hotel-price {
+    color: var(--black);
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 520px) {
+    .hotel-head { display: none; }
+    .hotel-item { grid-template-columns: 1fr auto; gap: 0.3rem 1rem; }
+    .hotel-name { grid-column: 1 / -1; margin-bottom: 0.15rem; }
+    .hotel-score { font-size: 0.82rem; }
   }
 
   /* NEIGHBOURHOOD CARDS */
@@ -582,10 +643,11 @@
     <p class="toc-title">Innhold</p>
     <ol class="toc-list">
       <li><a href="#omrader"><span class="toc-num">01</span> Områder å bo i</a></li>
-      <li><a href="#program"><span class="toc-num">02</span> Dag-for-dag-program</a></li>
-      <li><a href="#alternativer"><span class="toc-num">03</span> Alternative aktiviteter</a></li>
-      <li><a href="#bestill"><span class="toc-num">04</span> Bestill på forhånd</a></li>
-      <li><a href="#transport"><span class="toc-num">05</span> Transport</a></li>
+      <li><a href="#hoteller"><span class="toc-num">02</span> Hoteller å bo på</a></li>
+      <li><a href="#program"><span class="toc-num">03</span> Forslag til program</a></li>
+      <li><a href="#alternativer"><span class="toc-num">04</span> Alternative aktiviteter</a></li>
+      <li><a href="#bestill"><span class="toc-num">05</span> Forhåndsbestilling</a></li>
+      <li><a href="#transport"><span class="toc-num">06</span> Transport</a></li>
     </ol>
   </div>
 </nav>
@@ -681,11 +743,113 @@
     <div class="note">
       <strong>Husk:</strong> Sjekk at hotellet har heis (<em>ascenseur</em>). Mange sjarmerende Paris-hoteller mangler det. Søk etter «connecting rooms» eller «family room» — standard dobbeltrom er små.
     </div>
+
+    <img class="doc-figure" src="paris-arrondissementer.jpg" alt="Illustrert kart over Paris' arrondissementer (1–20) med kjente attraksjoner som Eiffeltårnet, Louvre, Notre-Dame, Arc de Triomphe og Montmartre, samt togstasjoner og flyplassene Charles de Gaulle og Orly." style="margin-top:1.5rem;">
+    <p class="doc-figure-cap">Paris' 20 arrondissementer med sentrale attraksjoner, stasjoner og flyplasser.</p>
   </section>
 
-  <!-- 02 DAG-FOR-DAG -->
-  <section id="program">
+  <!-- 02 HOTELLER -->
+  <section id="hoteller">
     <p class="section-label">02</p>
+    <h2 class="section-title">Hoteller å bo på</h2>
+
+    <img class="hotel-map" src="hoteller-omraade.png" alt="Kart over sentrale Paris med markører for de foreslåtte hotellene. De fleste ligger rundt Opéra, Grands Boulevards og opp mot Pigalle, med noen få lenger øst mot 11. arrondissement.">
+    <p class="hotel-map-cap">Omtrentlig plassering — de fleste hotellene ligger sentralt rundt Opéra og Grands Boulevards, med noen få lenger øst.</p>
+
+    <div class="hotel-list">
+      <div class="hotel-head">
+        <div>Hotell</div>
+        <div class="hotel-score">Score</div>
+        <div class="hotel-price">Ca. totalpris</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Merveil Luxury Suites – Rougemont I-II-III</div>
+        <div class="hotel-score">8.8 (3)</div>
+        <div class="hotel-price">15 100</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Hôtel Elixir</div>
+        <div class="hotel-score">8.2 (1006)</div>
+        <div class="hotel-price">15 300</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Hotel Paradis</div>
+        <div class="hotel-score">8.0 (558)</div>
+        <div class="hotel-price">15 900</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">WHO – Windsor Hotel Opera</div>
+        <div class="hotel-score">9.0 (587)</div>
+        <div class="hotel-price">17 300</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Citadines Opéra Paris</div>
+        <div class="hotel-score">8.6 (676)</div>
+        <div class="hotel-price">17 600</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Merveil Luxury Suites Aboukir I-II-III-IV</div>
+        <div class="hotel-score">8.0 (16)</div>
+        <div class="hotel-price">17 800</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Hôtel Brittany Opéra</div>
+        <div class="hotel-score">8.4 (1003)</div>
+        <div class="hotel-price">20 000</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Hôtel Palm – Astotel</div>
+        <div class="hotel-score">9.0 (334)</div>
+        <div class="hotel-price">20 100</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Le Petit Beaumarchais Hotel &amp; Spa</div>
+        <div class="hotel-score">9.2 (945)</div>
+        <div class="hotel-price">20 100</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Merveil Family Suite – Aboukir VIII</div>
+        <div class="hotel-score">–</div>
+        <div class="hotel-price">22 200</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Merveil Family Suite – Saint Denis II</div>
+        <div class="hotel-score">8.4 (5)</div>
+        <div class="hotel-price">22 900</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Solly Hôtel Paris</div>
+        <div class="hotel-score">9.2 (330)</div>
+        <div class="hotel-price">23 300</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">L'Empire Paris</div>
+        <div class="hotel-score">9.4 (1003)</div>
+        <div class="hotel-price">25 900</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">l'Echiquier Opéra Hotel Paris – MGallery</div>
+        <div class="hotel-score">9.4 (528)</div>
+        <div class="hotel-price">27 300</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Novotel Paris Les Halles</div>
+        <div class="hotel-score">8.8 (1281)</div>
+        <div class="hotel-price">27 400</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Holiday Inn Paris – Gare de Lyon Bastille</div>
+        <div class="hotel-score">9.2 (1007)</div>
+        <div class="hotel-price">Ikke tilgjengelig</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">Tallet i parentes viser antall vurderinger. <strong>Ca. totalpris</strong> er et omtrentlig anslag for hele oppholdet (NOK) og varierer med dato og tilgjengelighet.</div>
+  </section>
+
+  <!-- 03 DAG-FOR-DAG -->
+  <section id="program">
+    <p class="section-label">03</p>
     <h2 class="section-title">Forslag til program</h2>
 
     <!-- DAG 1 -->
@@ -864,9 +1028,9 @@
     </div>
   </section>
 
-  <!-- 03 ALTERNATIVE AKTIVITETER -->
+  <!-- 04 ALTERNATIVE AKTIVITETER -->
   <section id="alternativer">
-    <p class="section-label">03</p>
+    <p class="section-label">04</p>
     <h2 class="section-title">Alternative aktiviteter</h2>
     <p style="font-size:0.82rem; color:var(--mid); margin-bottom:1.2rem;">Aktuelle alternativer ved ekstra tid, endret plan eller dårlig vær:</p>
 
@@ -904,9 +1068,9 @@
     </div>
   </section>
 
-  <!-- 04 BESTILL PÅ FORHÅND -->
+  <!-- 05 BESTILL PÅ FORHÅND -->
   <section id="bestill">
-    <p class="section-label">04</p>
+    <p class="section-label">05</p>
     <h2 class="section-title">Forhåndsbestilling</h2>
 
     <div class="book-list">
@@ -954,7 +1118,7 @@
 
   <!-- 06 TRANSPORT -->
   <section id="transport">
-    <p class="section-label">05</p>
+    <p class="section-label">06</p>
     <h2 class="section-title">Transport</h2>
 
     <div>
