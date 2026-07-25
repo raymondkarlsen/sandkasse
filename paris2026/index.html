@@ -247,10 +247,47 @@
 
   .hotel-list { border: 1px solid var(--rule); }
 
+  /* CTA */
+  .cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: var(--blue-pale);
+    border: 1px solid var(--blue);
+    padding: 1.2rem 1.3rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .cta-box-text {
+    font-size: 0.95rem;
+    color: var(--blue);
+    line-height: 1.5;
+  }
+
+  .cta-box-text strong { font-weight: 700; }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    padding: 0.75rem 1.4rem;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .cta-btn:hover,
+  .cta-btn:focus-visible { background: #A24A16; }
+
   .hotel-head,
   .hotel-item {
     display: grid;
-    grid-template-columns: 1fr 5.5rem 7rem;
+    grid-template-columns: 1fr auto;
     gap: 1rem;
     padding: 0.85rem 1.1rem;
     align-items: baseline;
@@ -274,19 +311,35 @@
   .hotel-item:last-child { border-bottom: none; }
 
   .hotel-name { color: var(--black); font-weight: 500; }
-  .hotel-score { color: var(--mid); white-space: nowrap; }
 
-  .hotel-price {
-    color: var(--black);
-    text-align: right;
+  .hotel-name a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .hotel-name a:hover,
+  .hotel-name a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .hotel-name a::after {
+    content: " \2197";
+    color: var(--light);
+    font-weight: 400;
+  }
+
+  .hotel-score {
+    color: var(--mid);
     white-space: nowrap;
+    text-align: right;
     font-variant-numeric: tabular-nums;
   }
 
   @media (max-width: 520px) {
-    .hotel-head { display: none; }
-    .hotel-item { grid-template-columns: 1fr auto; gap: 0.3rem 1rem; }
-    .hotel-name { grid-column: 1 / -1; margin-bottom: 0.15rem; }
     .hotel-score { font-size: 0.82rem; }
   }
 
@@ -754,97 +807,125 @@
     <h2 class="section-title">Hoteller å bo på</h2>
 
     <img class="hotel-map" src="hoteller-omraade.png" alt="Kart over sentrale Paris med markører for de foreslåtte hotellene. De fleste ligger rundt Opéra, Grands Boulevards og opp mot Pigalle, med noen få lenger øst mot 11. arrondissement.">
-    <p class="hotel-map-cap">Et lite utvalg hoteller som ligger i riktig område. Det finnes mange flere, men det aller meste er dyrere. Omtrentlig plassering — de fleste hotellene ligger sentralt rundt Opéra og Grands Boulevards, med noen få lenger øst.</p>
+    <p class="hotel-map-cap">Et lite utvalg hoteller som ligger i riktig område. Det finnes mange flere, men det aller meste er dyrere. Omtrentlige områder vi ser på — de fleste hotellene ligger sentralt rundt Opéra og Grands Boulevards, med noen få lenger øst.</p>
 
     <div class="hotel-list">
       <div class="hotel-head">
         <div>Hotell</div>
         <div class="hotel-score">Score</div>
-        <div class="hotel-price">Ca. totalpris</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Merveil Luxury Suites – Rougemont I-II-III</div>
-        <div class="hotel-score">8.8 (3)</div>
-        <div class="hotel-price">15 100</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho176705/novotel-paris-les-halles-paris-france/" target="_blank" rel="noopener">Novotel Paris Les Halles</a></div>
+        <div class="hotel-score">8.8 (1282)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Hôtel Elixir</div>
-        <div class="hotel-score">8.2 (1006)</div>
-        <div class="hotel-price">15 300</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho2450792096/the-people-paris-marais-paris-france/" target="_blank" rel="noopener">The People Paris Marais</a></div>
+        <div class="hotel-score">8.4 (1213)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Hotel Paradis</div>
-        <div class="hotel-score">8.0 (558)</div>
-        <div class="hotel-price">15 900</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho266481/holiday-inn-paris-gare-de-lyon-bastille-paris-france/" target="_blank" rel="noopener">Holiday Inn Paris - Gare de Lyon Bastille by IHG</a></div>
+        <div class="hotel-score">9.2 (1011)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">WHO – Windsor Hotel Opera</div>
-        <div class="hotel-score">9.0 (587)</div>
-        <div class="hotel-price">17 300</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho282292/hotel-elixir-paris-france/" target="_blank" rel="noopener">Hôtel Elixir</a></div>
+        <div class="hotel-score">8.2 (1007)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Citadines Opéra Paris</div>
-        <div class="hotel-score">8.6 (676)</div>
-        <div class="hotel-price">17 600</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho253061/l-empire-paris-paris-france/" target="_blank" rel="noopener">L'Empire Paris</a></div>
+        <div class="hotel-score">9.4 (1005)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Merveil Luxury Suites Aboukir I-II-III-IV</div>
-        <div class="hotel-score">8.0 (16)</div>
-        <div class="hotel-price">17 800</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho135752/hotel-brittany-opera-paris-france/" target="_blank" rel="noopener">Hôtel Brittany Opéra</a></div>
+        <div class="hotel-score">8.4 (1004)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Hôtel Brittany Opéra</div>
-        <div class="hotel-score">8.4 (1003)</div>
-        <div class="hotel-price">20 000</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho272404/holiday-inn-paris-gare-de-l-est-paris-france/" target="_blank" rel="noopener">NH Paris Gare De l'Est</a></div>
+        <div class="hotel-score">8.2 (1004)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Hôtel Palm – Astotel</div>
-        <div class="hotel-score">9.0 (334)</div>
-        <div class="hotel-price">20 100</div>
-      </div>
-      <div class="hotel-item">
-        <div class="hotel-name">Le Petit Beaumarchais Hotel &amp; Spa</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho406862/le-petit-beaumarchais-hotel-spa-paris-france/" target="_blank" rel="noopener">Le Petit Beaumarchais Hotel &amp; Spa</a></div>
         <div class="hotel-score">9.2 (945)</div>
-        <div class="hotel-price">20 100</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Merveil Family Suite – Aboukir VIII</div>
-        <div class="hotel-score">–</div>
-        <div class="hotel-price">22 200</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho188910/hotel-du-plat-d-etain-paris-france/" target="_blank" rel="noopener">Hôtel du Plat d'Etain</a></div>
+        <div class="hotel-score">8.6 (846)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Merveil Family Suite – Saint Denis II</div>
-        <div class="hotel-score">8.4 (5)</div>
-        <div class="hotel-price">22 900</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho485309/hotel-l-antoine-paris-france/" target="_blank" rel="noopener">Hotel l'Antoine</a></div>
+        <div class="hotel-score">9.0 (803)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Solly Hôtel Paris</div>
-        <div class="hotel-score">9.2 (330)</div>
-        <div class="hotel-price">23 300</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho1255552064/le-grand-quartier-paris-france/" target="_blank" rel="noopener">Le Grand Quartier</a></div>
+        <div class="hotel-score">9.2 (769)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">L'Empire Paris</div>
-        <div class="hotel-score">9.4 (1003)</div>
-        <div class="hotel-price">25 900</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho119161/citadines-opera-paris-paris-france/" target="_blank" rel="noopener">Citadines Opéra Paris</a></div>
+        <div class="hotel-score">8.6 (676)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">l'Echiquier Opéra Hotel Paris – MGallery</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho178301/who-windsor-hotel-opera-paris-france/" target="_blank" rel="noopener">WHO - Windsor Hotel Opera</a></div>
+        <div class="hotel-score">9.0 (588)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho403222/residence-nell-paris-paris-france/" target="_blank" rel="noopener">Grand Hôtel Richer</a></div>
+        <div class="hotel-score">9.0 (559)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho391066/hotel-paradis-paris-france/" target="_blank" rel="noopener">Hotel Paradis</a></div>
+        <div class="hotel-score">8.0 (558)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho113236/hotel-l-echiquier-opera-paris-mgallery-paris-france/" target="_blank" rel="noopener">l'Echiquier Opéra Hotel Paris - MGallery Collection</a></div>
         <div class="hotel-score">9.4 (528)</div>
-        <div class="hotel-price">27 300</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Novotel Paris Les Halles</div>
-        <div class="hotel-score">8.8 (1281)</div>
-        <div class="hotel-price">27 400</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho225273/moxy-paris-bastille-france-paris-france/" target="_blank" rel="noopener">Moxy Paris Bastille France</a></div>
+        <div class="hotel-score">8.4 (388)</div>
       </div>
       <div class="hotel-item">
-        <div class="hotel-name">Holiday Inn Paris – Gare de Lyon Bastille</div>
-        <div class="hotel-score">9.2 (1007)</div>
-        <div class="hotel-price">Ikke tilgjengelig</div>
+        <div class="hotel-name"><a href="https://www.hotels.com/ho282444/hotel-palm-astotel-paris-france/" target="_blank" rel="noopener">Hôtel Palm - Astotel</a></div>
+        <div class="hotel-score">9.0 (334)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho123942/little-palace-hotel-paris-france/" target="_blank" rel="noopener">Solly Hôtel Paris</a></div>
+        <div class="hotel-score">9.2 (332)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho175021/hotel-saint-martin-bastille-paris-france/" target="_blank" rel="noopener">Hôtel Saint Martin Bastille</a></div>
+        <div class="hotel-score">9.4 (208)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3765817248/" target="_blank" rel="noopener">Merveil Luxury Suites AboukirI-II-III-IV</a></div>
+        <div class="hotel-score">8.2 (15)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3902578368/" target="_blank" rel="noopener">Merveil Family Suite - Saint Denis II</a></div>
+        <div class="hotel-score">8.4 (5)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3770024992/" target="_blank" rel="noopener">Merveil Luxury Suites - Rougemont I-II-III</a></div>
+        <div class="hotel-score">8.8 (3)</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3899762400/" target="_blank" rel="noopener">Merveil Family Suite - Aboukir VIII</a></div>
+        <div class="hotel-score">–</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3561685344/" target="_blank" rel="noopener">Charming &amp; Modern Duplex Apartment Center of Paris</a></div>
+        <div class="hotel-score">–</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name"><a href="https://www.hotels.com/ho3773616000/1554-lavandieres/" target="_blank" rel="noopener">1554 Lavandières </a></div>
+        <div class="hotel-score">–</div>
       </div>
     </div>
 
-    <div class="note" style="margin-top:1rem;">Tallet i parentes viser antall vurderinger. <strong>Ca. totalpris</strong> er et omtrentlig anslag for hele oppholdet (NOK) og varierer med dato og tilgjengelighet.</div>
+    <div class="note" style="margin-top:1rem;">Tallet i parentes viser antall vurderinger. Klikk på et hotellnavn for å åpne det på hotels.com. Score og tilgjengelighet varierer med dato.</div>
+
+    <div class="cta-box">
+      <div class="cta-box-text"><strong>Se hele utvalget på Hotels.com</strong><br>Jeg har samlet hotellene i en egen liste med priser og tilgjengelighet. Dette er ikke en komplett oversikt og viser bare noen få alternativer. Det finnes helt sikkert bedre og mer aktuelle muligheter.</div>
+      <a class="cta-btn" href="https://hotelsapp.onelink.me/fSyN/kf342ogy" target="_blank" rel="noopener">Se oversikten på hotels.com</a>
+    </div>
   </section>
 
   <!-- 03 DAG-FOR-DAG -->
